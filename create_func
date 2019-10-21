@@ -7,7 +7,7 @@
             print("Student Name : %s" (lstname))
             print("Studen Course : %s" (lstcourse))
     
-    def __init__(self,stdno,name,course):
+        def __init__(self,stdno,name,course):
         self.stdno = stdno
         self.name = name
         self.course = course
