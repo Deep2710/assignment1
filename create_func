@@ -1,4 +1,11 @@
     class Student:
+        def create():
+            stdno=int(input("Enter std no"))
+            name =str(input("Enter Name"))
+            course = int(input("Enter course"))
+            print("Student No : %s" (lststdno))
+            print("Student Name : %s" (lstname))
+            print("Studen Course : %s" (lstcourse))
     
     def __init__(self,stdno,name,course):
         self.stdno = stdno
