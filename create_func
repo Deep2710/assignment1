@@ -1,0 +1,10 @@
+def create():
+    lststdno=[]
+    lstname=[]
+    lstcourse=[]
+    stdno=int(input("Enter std no"))
+    name =str(input("Enter Name"))
+    course = int(input("Enter course"))
+    lststdno.append(stdno)
+    lstname.append(name)
+    lstcourse.append(course)
