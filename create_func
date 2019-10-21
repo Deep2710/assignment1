@@ -1,10 +1,15 @@
-def create():
-    lststdno=[]
-    lstname=[]
-    lstcourse=[]
-    stdno=int(input("Enter std no"))
-    name =str(input("Enter Name"))
-    course = int(input("Enter course"))
-    lststdno.append(stdno)
-    lstname.append(name)
-    lstcourse.append(course)
+    class Student:
+    
+    def __init__(self,stdno,name,course):
+        self.stdno = stdno
+        self.name = name
+        self.course = course
+        lststdno=[]
+        lstname=[]
+        lstcourse=[]
+        lststdno.append(stdno)
+        lstname.append(name)
+        lstcourse.append(course)
+        print("Student No : " ,lststdno)
+        print("Student Name : ", lstname)
+        print("Studen Course : " ,lstcourse)
