@@ -1,9 +1,16 @@
 import random
+import string
 
 def add (): 
-    stno_lst=[]
+    stdno_lst=[]
     name_lst=[]
     course_lst=[]
-    for i in range(10):
-        stdno_lst= random.randint(10000000,99999999)
+    
+    for i in range(100):
+        stdno_lst = random.randint(10000000,99999999)  // create random numbers for student number
+        char = string.ascii_uppercase
+        course_lst = "".join(random.choice(char) for i in range (7))  // create random string for course code
+        name_lst = "".join(random.choice(char) for i in range (5))    // create random string for name
+        
+
         
