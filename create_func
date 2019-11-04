@@ -1,22 +1,9 @@
-    class Student:
-        def create():
-            stdno=int(input("Enter std no"))
-            name =str(input("Enter Name"))
-            course = int(input("Enter course"))
-            print("Student No : %s" (lststdno))
-            print("Student Name : %s" (lstname))
-            print("Studen Course : %s" (lstcourse))
-    
-        def __init__(self,stdno,name,course):
-        self.stdno = stdno
-        self.name = name
-        self.course = course
-        lststdno=[]
-        lstname=[]
-        lstcourse=[]
-        lststdno.append(stdno)
-        lstname.append(name)
-        lstcourse.append(course)
-        print("Student No : " ,lststdno)
-        print("Student Name : ", lstname)
-        print("Studen Course : " ,lstcourse)
+import random
+
+def add (): 
+    stno_lst=[]
+    name_lst=[]
+    course_lst=[]
+    for i in range(10):
+        stdno_lst= random.randint(10000000,99999999)
+        
