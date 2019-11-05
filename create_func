@@ -1,23 +1,29 @@
 import random
-import string
+from string import ascii_uppercase
+from string import ascii_uppercase
 
-def random1(): 
+def random1():      ##random function to generate student record 
     stdno_lst=[]
     name_lst=[]
     course_lst=[]
     lst = []
     
-    stdno_lst = random.randint(10000000,99999999)
+    stdno_lst = random.randint(10000000,99999999)  ##random student numbers
     char = string.ascii_uppercase
     char1 = string.ascii_lowercase
-    course_lst = "".join(random.choice(char) for i in range (7))
-    name_lst = "".join(random.choice(char1) for i in range (5))
-        
-    lst.append(stdno_lst)
+    name_lst = "".join(random.choice(char1) for i in range (5)) ##random student names
+    course_lst = "".join(random.choice(char) for i in range (7)) ##random course numbers
+    
+    lst.append(stdno_lst)  ##creating list of list in lst 
     lst.append(name_lst)
     lst.append(course_lst)
-    print(lst)
-
-        
+    return lst             ##returning the created list
+    
+mainList = []              ##storing the list
 for i in range(100):
-    random1()
+    mainList.append(random1())
+
+for i in range(len(mainList)):   ##printing the whole list
+    print(mainList[i])
+
+    
