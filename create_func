@@ -1,5 +1,5 @@
 import random
-from string import ascii_uppercase
+from string import ascii_uppercase    ##importing for creating random strings
 from string import ascii_uppercase
 
 def random1():      ##random function to generate student record 
@@ -11,7 +11,7 @@ def random1():      ##random function to generate student record
     stdno_lst = random.randint(10000000,99999999)  ##random student numbers
     char = string.ascii_uppercase
     char1 = string.ascii_lowercase
-    name_lst = "".join(random.choice(char1) for i in range (5)) ##random student names
+    name_lst = "".join(random.choice(char1) for i in range (5)) ##random names
     course_lst = "".join(random.choice(char) for i in range (7)) ##random course numbers
     
     lst.append(stdno_lst)  ##creating list of list in lst 
@@ -20,10 +20,35 @@ def random1():      ##random function to generate student record
     return lst             ##returning the created list
     
 mainList = []              ##storing the list
-for i in range(100):
+for i in range(10):
     mainList.append(random1())
-
-for i in range(len(mainList)):   ##printing the whole list
     print(mainList[i])
 
     
+def divider(ls1,start,end):   ##creating partion for sorting from the pivot to start and end position
+    pivot=ls1[start]          ##selecting the pivot
+    i=start-1                 ##selecting the start and end elements
+    j=end+1
+    while True:
+        i+=1
+        while ls1[i]<pivot:
+            i+=1
+        j-=1
+        while ls1[j]>pivot:
+            j-=1
+        if i>=j:
+            return j           
+        ls1[i],ls1[j]=ls1[j],ls1[i]  ##if element at i is less than pivot put it on left hand side of pivot
+                                     ##if element at j is less than pivot put it on right hand side of pivot
+
+def sort_1(ls1):                     ##recursive function to sort elements in the left and right partions
+    def sort_2(mainList,start,end):
+        if start < end:
+            d = divider(mainList,start,end)  ##value of element where partion will occur
+            sort_2(mainList,start,d)
+            sort_2(mainList,d+1,end)
+    sort_2(ls1,0,len(mainList)-1)
+        
+sort_1(mainList)
+print(mainList)
+print(mainList.pop(0))
