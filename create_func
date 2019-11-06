@@ -1,6 +1,5 @@
 import random
-from string import ascii_uppercase    ##importing for creating random strings
-from string import ascii_uppercase
+import string       ##importing for random string
 
 def random1():      ##random function to generate student record 
     stdno_lst=[]
