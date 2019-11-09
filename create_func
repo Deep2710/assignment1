@@ -11,7 +11,7 @@ def random1():      ##random function to generate student record
     char = string.ascii_uppercase
     char1 = string.ascii_lowercase
     name_lst = "".join(random.choice(char1) for i in range (5)) ##random names
-    course_lst = "".join(random.choice(char) for i in range (7)) ##random course numbers
+    course_lst = str("CO") + str(random.randint(10000,99999)) ##random course numbers
     
     lst.append(stdno_lst)  ##creating list of list in lst 
     lst.append(name_lst)
@@ -40,14 +40,51 @@ def divider(ls1,start,end):   ##creating partion for sorting from the pivot to s
         ls1[i],ls1[j]=ls1[j],ls1[i]  ##if element at i is less than pivot put it on left hand side of pivot
                                      ##if element at j is less than pivot put it on right hand side of pivot
 
-def sort_1(ls1):                     ##recursive function to sort elements in the left and right partions
-    def sort_2(mainList,start,end):
-        if start < end:
-            d = divider(mainList,start,end)  ##value of element where partion will occur
-            sort_2(mainList,start,d)
-            sort_2(mainList,d+1,end)
+def sort_2(mainList,start,end):
+    if start < end:
+        d = divider(mainList,start,end)  ##value of element where partion will occur
+        sort_2(mainList,start,d)
+        sort_2(mainList,d+1,end)
+        
+def sort_1(ls1):                     ##recursive function to sort elements in the left and right partions    
     sort_2(ls1,0,len(mainList)-1)
         
-sort_1(mainList)
-print(mainList)
-print(mainList.pop(0))
+def retrive():
+    sort_1(mainList)
+    print(mainList.pop(0))
+    
+'''class Student:
+    def __init__(self,stdno,name,course):
+        self.stdno = studentno
+        self.name = name
+        self.course = course'''
+
+stdlst = []        
+def add():                            ##user input
+    while True:
+        studentno = []
+        studentno = int(input("Enter Student no "))
+        while len(str(studentno))!=8:
+            print("Please enter correct student number ")
+            studentno = int(input("Enter Student no "))
+        else:
+            stdlst.append(studentno)
+            
+        
+        name =[]
+        name = str(input("Enter Name "))
+        stdlst.append(name)
+        
+        course=[]
+        course =str("CO")+str(input("Enter Course "))
+        while len(str(course))!=7:
+            print("Please enter correct course ")
+            course = str("CO")+str(input("Enter Course "))
+        else:
+            stdlst.append(course)
+        return stdlst
+
+def show():
+    #for i in stdlst:
+        mainList.append(stdlst)
+        print(mainList)
