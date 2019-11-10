@@ -16,3 +16,11 @@ this function allows user to add new record to the list.
 show()
 this function shows the sorted list after inserting the new record and its position.
 
+Steps to run the program
+1.store()
+2.retrive()
+3.add()
+ a.Enter 8 digit Student No. 
+ b.Enter Name 
+ c.Enter 5 digit Course
+4.show()
