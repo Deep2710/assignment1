@@ -1,0 +1,114 @@
+import random
+##importing for random string
+import string       
+
+##random function to generate student record
+def random1():       
+    stdno_lst=[]
+    name_lst=[]
+    course_lst=[]
+    lst = []
+    
+    ##random student numbers
+    stdno_lst = random.randint(10000000,99999999)  
+    
+    ##random names
+    char1 = string.ascii_lowercase
+    name_lst = "".join(random.choice(char1) for i in range (5))
+    
+    ##random course numbers
+    course_lst = str("CO") + str(random.randint(10000,99999)) 
+    
+    ##creating list of list in lst 
+    lst.append(stdno_lst)  
+    lst.append(name_lst)
+    lst.append(course_lst)
+    ##returning the created list
+    return lst             
+
+##storing the list
+mainList = []              
+def store():
+    x = int(input("Enter number of random data to be generated "))
+    for i in range(x):
+        mainList.append(random1())
+        print(mainList[i])
+
+##creating partion for sorting from the pivot to start and end position    
+def divider(ls1,start,end):
+    ##selecting the pivot
+    pivot=ls1[start]
+    ##selecting the start and end elements
+    i=start-1                 
+    j=end+1
+    while True:
+        i+=1
+        while ls1[i]<pivot:
+            i+=1
+        j-=1
+        while ls1[j]>pivot:
+            j-=1
+        if i>=j:
+            return j 
+        
+        ##if element at i is less than pivot put it on left hand side of pivot
+        ##if element at j is less than pivot put it on right hand side of pivot
+        ls1[i],ls1[j]=ls1[j],ls1[i]
+        
+        
+def sort_2(mainList,start,end):
+    if start < end:
+        ##value of element where partion will occur
+        d = divider(mainList,start,end)
+        ##calling sort_2 function for sorting in the partition created
+        sort_2(mainList,start,d)
+        sort_2(mainList,d+1,end)
+
+##recursive function to sort elements in the left and right partions  
+def sort_1(ls1):                       
+    sort_2(ls1,0,len(ls1)-1)
+        
+def retrive():
+    sort_1(mainList)
+    print(mainList.pop(0))
+    
+stdlst=[]
+
+##function for user input
+def add():                            
+    studentno = []
+    name = []
+    course = []
+
+    studentno = int(input("Enter Student no ")) 
+    while len(str(studentno))!=8:
+        print("Please enter correct student number ")
+        studentno = int(input("Enter Student no "))
+    stdlst.append(studentno)
+    
+    name = str(input("Enter Name "))
+    stdlst.append(name)
+    
+    course = str("CO")+str(input("Enter Course "))
+    while len(str(course))!=7:
+        print("Please enter correct course ")
+        course = str("CO")+str(input("Enter Course "))
+    stdlst.append(course)
+    
+    return stdlst
+
+index = 0
+##function for sorting the new record inserted
+def insert_sort (mainList,stdlst):
+    for i in range (len(mainList)):
+        if mainList[i] > stdlst :
+            index = i
+            break
+    mainList = mainList[:i] + [stdlst] + mainList[i:]
+    index = i
+    return mainList,index
+
+##function for showing the new list and position of new element
+def show():
+    finalList, position = insert_sort(mainList,stdlst)
+    print("List After Insertion %s at position %d  " % (finalList,position))
